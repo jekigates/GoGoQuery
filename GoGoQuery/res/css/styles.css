@@ -1,0 +1,66 @@
+.form-max-width {
+	-fx-max-width: 400px;
+}
+
+.bg-orange {
+    -fx-background-color: #ff8c00;
+}
+
+.bg-gray {
+	-fx-background-color: #3f3b3b;
+}
+
+.bg-white {
+	-fx-background-color: white;
+}
+
+.text-gray {
+	-fx-text-fill: #3f3b3b;
+}
+
+.text-white {
+	-fx-text-fill: white;
+}
+
+.font-bold {
+	-fx-font-weight: bold;
+}
+
+.text-lg {
+	-fx-font-size: 1.125em;
+	-fx-line-height: 1.75em;
+}
+
+.text-xl {
+	-fx-font-size: 1.25em;
+	-fx-line-height: 1.75em;
+}
+
+.text-2xl {
+	-fx-font-size: 1.5em;
+	-fx-line-height: 2em;
+}
+
+.text-3xl {
+	-fx-font-size: 1.875em;
+	-fx-line-height: 2em;
+}
+
+.text-4xl {
+	-fx-font-size: 2.25em;
+	-fx-line-height: 2.5em;
+}
+
+.text-5xl {
+	-fx-font-size: 3em;
+	-fx-line-height: 1;
+}
+
+.text-6xl {
+	-fx-font-size: 3.75em;
+	-fx-line-height: 1;
+}
+
+.cursor-pointer {
+	-fx-cursor: hand;
+}
