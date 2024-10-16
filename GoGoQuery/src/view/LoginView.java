@@ -1,12 +1,16 @@
 package view;
 
+import controller.LoginController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -24,6 +28,53 @@ public class LoginView {
 		initialize();
 		addComponent();
 		arrangeComponent();
+		setMouseEvent();
+		setKeyEvent();
+	}
+	
+	private void handleSubmit() {
+		String email = tfEmail.getText();
+		String password = pfPassword.getText();
+		
+		Alert alert = new Alert(AlertType.ERROR);
+		String errorMsg = "";
+		alert.setHeaderText("Log in failed");
+		
+		if (email.isEmpty() || password.isEmpty()) {
+			errorMsg = "Please fill out all fields.";
+		} else {
+			LoginController lc = new LoginController();
+			
+			if (lc.authenticate(email, password)) {
+				System.out.println("berhasil");
+				return;
+			} else {
+				errorMsg = "You entered a wrong email or password.";
+			}
+		}
+		
+		alert.setContentText(errorMsg);
+		alert.showAndWait();
+	}
+	
+	private void setKeyEvent() {
+		tfEmail.setOnKeyPressed(event -> {
+			if (event.getCode().equals(KeyCode.ENTER)) {
+				handleSubmit();
+			}
+		});
+		
+		pfPassword.setOnKeyPressed(event -> {
+		if (event.getCode().equals(KeyCode.ENTER)) {
+				handleSubmit();
+			}
+		});
+	}
+
+	private void setMouseEvent() {
+		btnLogin.setOnMouseClicked(event -> {
+			handleSubmit();
+		});
 	}
 
 	private void arrangeComponent() {
@@ -32,19 +83,23 @@ public class LoginView {
 		lblTitle.getStyleClass().addAll("text-5xl", "font-bold");
 		lblEmail.getStyleClass().addAll("font-bold", "text-gray");
 		lblPassword.getStyleClass().addAll("font-bold", "text-gray");
+		lblRegister.getStyleClass().add("cursor-pointer");
 		lblLogin.getStyleClass().addAll("text-5xl", "font-bold");
 		btnLogin.setPrefWidth(Double.MAX_VALUE);
 		btnLogin.getStyleClass().addAll("bg-orange", "text-white", "font-bold", "form-max-width", "cursor-pointer");
+		tfEmail.setPadding(new Insets(8));
+		pfPassword.setPadding(new Insets(8));
+		btnLogin.setPadding(new Insets(8));
 		
-		vb.setPadding(new Insets(20));
+		vb.setPadding(new Insets(16));
 		vb.getStyleClass().add("bg-white");
 		vb.setSpacing(16);
 		vb.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-		vb.setAlignment(Pos.CENTER);
 		
 		vbEmail.getStyleClass().add("form-max-width");
 		vbPassword.getStyleClass().add("form-max-width");
 		vbRegister.setAlignment(Pos.CENTER);
+		bp.setPadding(new Insets(16));
 		bp.getStyleClass().add("bg-gray");
 		bp.setTop(lblTitle);
 		bp.setCenter(vb);
