@@ -1,18 +1,16 @@
 package controller;
 
 import entity.User;
-import javafx.stage.Stage;
 import model.UserModel;
 import util.StageManager;
 import view.LoginView;
 
 public class LoginController {
 	private final StageManager sm = StageManager.getInstance();
-	private Stage stage = sm.getStage();
 	
 	public void index() {
-		LoginView lv = new LoginView();
-		stage.setScene(lv.getScene());
+		LoginView view = new LoginView();
+		sm.getStage().getScene().setRoot(view.getPane());
 	}
 	
 	public boolean authenticate(String email, String password) {

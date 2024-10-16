@@ -1,9 +1,9 @@
 package view;
 
 import controller.LoginController;
+import controller.RegisterController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -12,19 +12,21 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import util.StageManager;
 
 public class LoginView {
+	private final StageManager sm = StageManager.getInstance();
 	private BorderPane bp;
-	private Scene scene;
 	private VBox vb, vbEmail, vbPassword, vbRegister;
 	private Label lblTitle, lblLogin, lblEmail, lblPassword, lblRegister;
 	private TextField tfEmail;
 	private PasswordField pfPassword;
 	private Button btnLogin;
 
-	public LoginView() {
+	public LoginView() {		
 		initialize();
 		addComponent();
 		arrangeComponent();
@@ -38,6 +40,7 @@ public class LoginView {
 		
 		Alert alert = new Alert(AlertType.ERROR);
 		String errorMsg = "";
+		alert.setTitle("Invalid Login");
 		alert.setHeaderText("Log in failed");
 		
 		if (email.isEmpty() || password.isEmpty()) {
@@ -65,15 +68,21 @@ public class LoginView {
 		});
 		
 		pfPassword.setOnKeyPressed(event -> {
-		if (event.getCode().equals(KeyCode.ENTER)) {
-				handleSubmit();
+			if (event.getCode().equals(KeyCode.ENTER)) {
+					handleSubmit();
+				}
 			}
-		});
+		);
 	}
 
 	private void setMouseEvent() {
 		btnLogin.setOnMouseClicked(event -> {
 			handleSubmit();
+		});
+		
+		lblRegister.setOnMouseClicked(event -> {
+			RegisterController rc = new RegisterController();
+			rc.index();
 		});
 	}
 
@@ -87,9 +96,9 @@ public class LoginView {
 		lblLogin.getStyleClass().addAll("text-5xl", "font-bold");
 		btnLogin.setPrefWidth(Double.MAX_VALUE);
 		btnLogin.getStyleClass().addAll("bg-orange", "text-white", "font-bold", "form-max-width", "cursor-pointer");
+		btnLogin.setPadding(new Insets(8));
 		tfEmail.setPadding(new Insets(8));
 		pfPassword.setPadding(new Insets(8));
-		btnLogin.setPadding(new Insets(8));
 		
 		vb.setPadding(new Insets(16));
 		vb.getStyleClass().add("bg-white");
@@ -113,8 +122,9 @@ public class LoginView {
 	}
 
 	private void initialize() {
+		sm.getStage().setTitle("GoGoQuery - Login");
+
 		bp = new BorderPane();
-		scene = new Scene(bp);
 		vb = new VBox();
 		vbEmail = new VBox();
 		vbPassword = new VBox();
@@ -129,7 +139,7 @@ public class LoginView {
 		btnLogin = new Button("Login");
 	}
 
-	public Scene getScene() {
-		return scene;
+	public Pane getPane() {
+		return bp;
 	}
 }
