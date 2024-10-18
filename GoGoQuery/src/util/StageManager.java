@@ -1,6 +1,5 @@
 package util;
 
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class StageManager {
@@ -30,9 +29,5 @@ public class StageManager {
 		this.stage = stage;
 		stage.setMaximized(true);
         stage.setResizable(false);
-	}
-	
-	public void setRoot(Pane pane) {
-		this.stage.getScene().setRoot(pane);
 	}
 }

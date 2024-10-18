@@ -6,6 +6,14 @@
     -fx-background-color: #ff8c00;
 }
 
+.text-orange {
+	-fx-text-fill: #ff8c00;
+}
+
+.bg-red {
+	-fx-background-color: #ff304f;
+}
+
 .bg-gray {
 	-fx-background-color: #3f3b3b;
 }

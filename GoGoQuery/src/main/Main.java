@@ -1,6 +1,6 @@
 package main;
 
-import controller.LoginController;
+import controller.HomeController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -20,8 +20,10 @@ public class Main extends Application {
 //		Set scene dengan border pane polos sebagai root biar nanti bisa swap scenes
 		sm.getStage().setScene(new Scene(new BorderPane()));
 		
-		LoginController lc = new LoginController();
-		lc.index();
+//		LoginController lc = new LoginController();
+//		lc.index();
+		HomeController hc = new HomeController();
+		hc.index();
 		
         // Load the CSS stylesheet
         String css = this.getClass().getResource("/css/styles.css").toExternalForm();

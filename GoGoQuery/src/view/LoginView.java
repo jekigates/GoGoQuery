@@ -87,8 +87,8 @@ public class LoginView {
 	}
 
 	private void arrangeComponent() {
-		lblTitle.getStyleClass().add("text-white");
 		BorderPane.setAlignment(lblTitle, Pos.BOTTOM_CENTER);
+		lblTitle.getStyleClass().add("text-white");
 		lblTitle.getStyleClass().addAll("text-5xl", "font-bold");
 		lblEmail.getStyleClass().addAll("font-bold", "text-gray");
 		lblPassword.getStyleClass().addAll("font-bold", "text-gray");
