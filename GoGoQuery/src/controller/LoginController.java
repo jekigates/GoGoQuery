@@ -13,9 +13,9 @@ public class LoginController {
 		sm.getStage().getScene().setRoot(view.getPane());
 	}
 	
-	public boolean authenticate(String email, String password) {
+	public User authenticate(String email, String password) {
 		User user = UserModel.findUser(email, password);
 		
-		return user == null ? false : true;
+		return user == null ? null : user;
 	}
 }

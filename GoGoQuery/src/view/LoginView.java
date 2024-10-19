@@ -1,7 +1,9 @@
 package view;
 
+import controller.HomeController;
 import controller.LoginController;
 import controller.RegisterController;
+import entity.User;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -35,8 +37,8 @@ public class LoginView {
 	}
 	
 	private void handleSubmit() {
-		String email = tfEmail.getText();
-		String password = pfPassword.getText();
+		final String email = tfEmail.getText();
+		final String password = pfPassword.getText();
 		
 		Alert alert = new Alert(AlertType.ERROR);
 		String errorMsg = "";
@@ -47,9 +49,12 @@ public class LoginView {
 			errorMsg = "Please fill out all fields.";
 		} else {
 			LoginController lc = new LoginController();
+			User user = lc.authenticate(email, password);
 			
-			if (lc.authenticate(email, password)) {
-				System.out.println("berhasil");
+			if (user != null) {
+				HomeController hc = new HomeController();
+				hc.index();
+				
 				return;
 			} else {
 				errorMsg = "You entered a wrong email or password.";
