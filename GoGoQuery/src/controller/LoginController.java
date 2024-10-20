@@ -3,6 +3,7 @@ package controller;
 import entity.User;
 import model.UserModel;
 import util.StageManager;
+import util.UserSession;
 import view.LoginView;
 
 public class LoginController {
@@ -16,6 +17,11 @@ public class LoginController {
 	public User authenticate(String email, String password) {
 		User user = UserModel.findUser(email, password);
 		
-		return user == null ? null : user;
+		if (user != null) {
+			UserSession.getInstance(user);
+			return user;
+		}
+		
+		return null;
 	}
 }

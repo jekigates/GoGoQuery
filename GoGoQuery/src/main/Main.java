@@ -1,6 +1,9 @@
 package main;
 
 import controller.HomeController;
+import controller.LoginController;
+import controller.ProductController;
+import entity.Item;
 import entity.User;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,13 +25,16 @@ public class Main extends Application {
 //		Set scene dengan border pane polos sebagai root biar nanti bisa swap scenes
 		sm.getStage().setScene(new Scene(new BorderPane()));
 		
-		User user = new User(1, "2004-07-17", "jekigates@gmail.com", "jekigates123", "Male", "Shopper");
-		UserSession session = UserSession.getInstance(user);
+//		User user = new User(16, "2004-07-17", "jekigates@gmail.com", "jekigates123", "Male", "Shopper");
+//		UserSession.getInstance(user);
 		
-//		LoginController lc = new LoginController();
-//		lc.index();
-		HomeController hc = new HomeController();
-		hc.index();
+		LoginController lc = new LoginController();
+		lc.index();
+//		HomeController hc = new HomeController();
+//		hc.index();
+//		ProductController pc = new ProductController();
+//		Item item = new Item(1, "Tokai AST-52SH VWH/CJ Goldstar Sound in Vintage White", 496.69, "Test", 8, "Guitar");
+//		pc.show(item);
 		
         // Load the CSS stylesheet
         String css = this.getClass().getResource("/css/styles.css").toExternalForm();
