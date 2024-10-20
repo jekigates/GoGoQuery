@@ -140,7 +140,9 @@ public class LoginView {
 		lblPassword = new Label("Password");
 		lblRegister = new Label("Are you new? Register here!");
 		tfEmail = new TextField();
+//		tfEmail = new TextField("jekigates123@gomail.com");
 		pfPassword = new PasswordField();
+//		pfPassword.setText("jekigates123");
 		btnLogin = new Button("Login");
 	}
 
