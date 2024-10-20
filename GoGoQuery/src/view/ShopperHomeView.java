@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import controller.HomeController;
 import controller.LoginController;
-import controller.ProductController;
+import controller.ItemController;
 import entity.Item;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -129,7 +129,7 @@ public class ShopperHomeView {
 			hbItemDiv.setPadding(new Insets(0, 0, 16, 0));
 			
 			hbItem.setOnMouseClicked(event -> {
-				ProductController pc = new ProductController();
+				ItemController pc = new ItemController();
 				pc.show(item);
 			});
 			
@@ -189,7 +189,7 @@ public class ShopperHomeView {
 	}
 
 	private void initialize() {
-		sm.getStage().setTitle("GoGoQuery - Home");
+		sm.getStage().setTitle("GoGoQuery - Shopper Home");
 		
 		bp = new BorderPane();
 		vb = new VBox();

@@ -132,4 +132,20 @@ public class ItemModel {
 
 		return items;
 	}
+
+	public static void insertItem(String name, String description, String category, double price, int stock) {
+		String query = "INSERT INTO MsItem (ItemName, ItemDesc, ItemCategory, ItemPrice, ItemStock) VALUES (?, ?, ?, ?, ?)";
+		
+		try (PreparedStatement ps = con.prepareStatement(query)) {
+			ps.setString(1, name);
+			ps.setString(2, description);
+			ps.setString(3, category);
+			ps.setDouble(4, price);
+			ps.setInt(5, stock);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

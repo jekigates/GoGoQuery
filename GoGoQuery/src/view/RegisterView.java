@@ -53,7 +53,13 @@ public class RegisterView {
 		String confirmPassword = pfConfirmPassword.getText();
 		LocalDate dob = dpDOB.getValue();
 		
-		String gender = rbMale.isSelected() ? "Male" : "Female";
+		String gender = "";
+		if (rbMale.isSelected()) {
+			gender = "Male";
+		} else if (rbFemale.isSelected()) {
+			gender = "Female";
+		}
+		
 		boolean isAccepted = cbAccept.isSelected();
 
 		Alert alert = new Alert(AlertType.ERROR);

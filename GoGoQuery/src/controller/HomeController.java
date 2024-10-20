@@ -19,10 +19,12 @@ public class HomeController {
 		
 		switch (session.getUser().getRole()) {
 		case "Shopper":
-			ShopperHomeView view = new ShopperHomeView(categories, items);
-			sm.getStage().getScene().setRoot(view.getPane());
+			ShopperHomeView shv = new ShopperHomeView(categories, items);
+			sm.getStage().getScene().setRoot(shv.getPane());
 			break;
 		case "Manager":
+			TransactionController tc = new TransactionController();
+			tc.index();
 			break;
 		default:
 			break;

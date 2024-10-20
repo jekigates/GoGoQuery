@@ -6,6 +6,10 @@
     -fx-background-color: #ff8c00;
 }
 
+.bg-green {
+	-fx-background-color: #17b978;
+}
+
 .text-orange {
 	-fx-text-fill: #ff8c00;
 }
