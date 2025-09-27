@@ -12,7 +12,7 @@ Designed to handle two user roles: **Shopper** and **Manager** for efficient sto
 ## Table of Contents
 1. [Project Overview](#project-overview)  
 2. [Features](#features)  
-3. [How to Run Project Locally](#how-to-run-project-locally)  
+3. [Mockup Screenshot](#mockup-screenshot)  
 
 ---
 
@@ -66,4 +66,5 @@ This application is developed as a JavaFX desktop application using Java program
 
 <p align="center">
   <img src="https://i.imgur.com/PH1fb0C.png" width="700">
+
 </p>
